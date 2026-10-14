@@ -32,7 +32,7 @@ Symbolizer *-- Mark
 
 include::../requirements/rc-coverage-as-points.adoc[]
 
-[rc-coverage-as-contours]
+[[rc-coverage-as-contours]]
 === Requirements Class "Coverage as contours"
 
 ==== Overview
@@ -81,7 +81,7 @@ Symbolizer *-- Stroke
 
 include::../requirements/rc-coverage-as-contours.adoc[]
 
-[rc-contrast-enhancement]
+[[rc-contrast-enhancement]]
 === Requirements Class "Contrast Enhancement"
 
 ==== Overview
@@ -125,7 +125,7 @@ pixels in the image at each brightness level on output
 
 include::../requirements/rc-contrast-enhancement.adoc[]
 
-[rc-hsv-modifier]
+[[rc-hsv-modifier]]
 === Requirements Class "Hue, Saturation, Value Modifier"
 
 ==== Overview
