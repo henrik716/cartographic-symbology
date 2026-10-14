@@ -1,0 +1,28 @@
+// NOTE: Including an extra heading level for conformance class alone in their section
+==== Contrast Enhancement
+
+[[rc-table-contrast-enhancement]]
+
+[requirements_class]
+.Contrast Enhancement
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/cartosym-4/1.0/req/contrast-enhancement
+inherit:: http://www.opengis.net/spec/cartosym-1/2.0/req/coverage
+subject:: Style encodings and Renderers
+====
+
+[[req-contrast-enhancement-contrast-enhancement]]
+===== Symbolizer `contrastEnhancement` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/contrast-enhancement/contrast-enhancement
+part:: An Encoding SHALL support defining a `contrastEnhancement` Symbolizer property with a value of `none`, `normalize` or `histogram`.
+part:: A Renderer SHALL support portraying a coverage without modifying its contrast when `contrastEnhancement` is `none`.
+part:: A Renderer SHALL support stretching the contrast of a coverage linearly, so that the dimmest value is portrayed as black and the brightest value as white, when `contrastEnhancement` is `normalize`.
+part:: A Renderer SHALL support stretching the contrast of a coverage based on a histogram of its brightness levels, so that each output brightness level is used by an approximately equal number of cells, when `contrastEnhancement` is `histogram`.
+====
+
+// TODO(review): the overview has an open TODO to add a contrast enhancement value and to review the enumeration. Also define over which extent (visible area, whole coverage) the dimmest and brightest values and the histogram are computed.

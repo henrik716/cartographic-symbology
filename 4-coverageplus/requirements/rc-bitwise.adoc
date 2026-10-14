@@ -1,0 +1,81 @@
+// NOTE: Including an extra heading level for conformance class alone in their section
+==== Bitwise Operators
+
+[[rc-table-bitwise]]
+
+[requirements_class]
+.Bitwise Operators
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/cartosym-4/1.0/req/bitwise
+inherit:: http://www.opengis.net/spec/cartosym-1/2.0/req/core
+subject:: Style encodings and Renderers
+====
+
+[[req-bitwise-bit-and]]
+===== Bitwise `bitAnd` operator
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/bitwise/bit-and
+part:: An Encoding SHALL support defining a `bitAnd` operation expression taking two integer operands.
+part:: A Renderer SHALL support evaluating a `bitAnd` operation expression as the bitwise AND of its two operands.
+====
+
+[[req-bitwise-bit-or]]
+===== Bitwise `bitOr` operator
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/bitwise/bit-or
+part:: An Encoding SHALL support defining a `bitOr` operation expression taking two integer operands.
+part:: A Renderer SHALL support evaluating a `bitOr` operation expression as the bitwise inclusive OR of its two operands.
+====
+
+[[req-bitwise-bit-xor]]
+===== Bitwise `bitXor` operator
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/bitwise/bit-xor
+part:: An Encoding SHALL support defining a `bitXor` operation expression taking two integer operands.
+part:: A Renderer SHALL support evaluating a `bitXor` operation expression as the bitwise exclusive OR of its two operands.
+====
+
+[[req-bitwise-bit-not]]
+===== Bitwise `bitNot` operator
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/bitwise/bit-not
+part:: An Encoding SHALL support defining a `bitNot` operation expression taking a single integer operand.
+part:: A Renderer SHALL support evaluating a `bitNot` operation expression as the bitwise complement of its operand.
+====
+
+[[req-bitwise-left-shift]]
+===== Bitwise `leftShift` operator
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/bitwise/left-shift
+part:: An Encoding SHALL support defining a `leftShift` operation expression taking two integer operands.
+part:: A Renderer SHALL support evaluating a `leftShift` operation expression as the first operand with its bits shifted to the left by the number of positions given by the second operand.
+====
+
+[[req-bitwise-right-shift]]
+===== Bitwise `rightShift` operator
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/bitwise/right-shift
+part:: An Encoding SHALL support defining a `rightShift` operation expression taking two integer operands.
+part:: A Renderer SHALL support evaluating a `rightShift` operation expression as the first operand with its bits shifted to the right by the number of positions given by the second operand.
+====
+
+// TODO(review): confirm whether `rightShift` is an arithmetic (sign-preserving) or logical shift, and the integer width assumed by bitwise operators.

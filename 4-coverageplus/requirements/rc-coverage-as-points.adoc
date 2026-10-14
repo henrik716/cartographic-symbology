@@ -1,0 +1,27 @@
+// NOTE: Including an extra heading level for conformance class alone in their section
+==== Coverage as points
+
+[[rc-table-coverage-as-points]]
+
+[requirements_class]
+.Coverage as points
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/cartosym-4/1.0/req/coverage-as-points
+inherit:: http://www.opengis.net/spec/cartosym-1/2.0/req/coverage
+subject:: Style encodings and Renderers
+====
+
+[[req-coverage-as-points-mark]]
+===== Symbolizer `mark` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/coverage-as-points/mark
+part:: An Encoding SHALL support defining a `mark` Symbolizer property as a Marker.
+part:: A Renderer SHALL support portraying a coverage as individual points, as if it were a MultiPoint vector feature, by drawing the graphical elements of the `mark` at the location of each coverage cell.
+part:: A Renderer SHALL support evaluating the Parameter Values of the `mark` for each coverage cell, so that the values of that cell can be used to style its marker (e.g., to orient a wind barb).
+====
+
+// TODO(review): the UML names this property `mark` of type `Mark`, the table uses type `Marker`, and Part 1 uses `marker` for the equivalent vector property. Confirm the name and type, and whether the cell location is its center.

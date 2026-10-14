@@ -1,0 +1,57 @@
+// NOTE: Including an extra heading level for conformance class alone in their section
+==== Hue, Saturation, Value Modifier
+
+[[rc-table-hsv-modifier]]
+
+[requirements_class]
+.Hue, Saturation, Value Modifier
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/cartosym-4/1.0/req/hsv-modifier
+inherit:: http://www.opengis.net/spec/cartosym-1/2.0/req/coverage
+subject:: Style encodings and Renderers
+====
+
+[[req-hsv-modifier-hsv-modifier]]
+===== Symbolizer `hsvModifier` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/hsv-modifier/hsv-modifier
+part:: An Encoding SHALL support defining an `hsvModifier` Symbolizer property as an HSVModifier object including `hue`, `saturation` and `value` properties.
+part:: A Renderer SHALL support applying the `hsvModifier` to the colors resulting from portraying the coverage, by converting them to the hue, saturation and value color model, modifying them, and converting them back.
+====
+
+[[req-hsv-modifier-hue]]
+===== HSVModifier `hue` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/hsv-modifier/hue
+part:: An Encoding SHALL support defining a `hue` HSVModifier property as a double between -360 and 360 (degrees).
+part:: A Renderer SHALL support adding the `hue` value to the hue of the colors, wrapping the result around to remain within 0 to 360 degrees.
+====
+
+[[req-hsv-modifier-saturation]]
+===== HSVModifier `saturation` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/hsv-modifier/saturation
+part:: An Encoding SHALL support defining a `saturation` HSVModifier property as a double.
+part:: A Renderer SHALL support multiplying the saturation of the colors by the `saturation` value, clamping the result to the valid range of saturation.
+====
+
+[[req-hsv-modifier-value]]
+===== HSVModifier `value` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/hsv-modifier/value
+part:: An Encoding SHALL support defining a `value` HSVModifier property as a double.
+part:: A Renderer SHALL support multiplying the value (brightness) of the colors by the `value` property, clamping the result to the valid range of value.
+====

@@ -1,0 +1,39 @@
+// NOTE: Including an extra heading level for conformance class alone in their section
+==== Aggregation
+
+[[rc-table-aggregation]]
+
+[requirements_class]
+.Aggregation
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/cartosym-4/1.0/req/aggregation
+inherit:: http://www.opengis.net/spec/cartosym-1/2.0/req/core
+subject:: Style encodings and Renderers
+====
+
+[[req-aggregation-aggregate]]
+===== `Aggregate` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/aggregation/aggregate
+part:: An Encoding SHALL support defining a call to the `Aggregate` standard function taking an Expression to aggregate, an aggregation method, and an array of names of the dimensions to aggregate upon.
+part:: A Renderer SHALL support evaluating the `Aggregate` function by evaluating the expression for every coverage cell along the specified dimensions (e.g., `time`) and combining the resulting values using the aggregation method, resulting in a single value for each remaining position.
+====
+
+// TODO(review): define the handling of no-data values, and confirm whether the function is named `Aggregate` or `aggregate`, consistently with other standard functions.
+
+[[req-aggregation-methods]]
+===== Aggregation methods
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/aggregation/methods
+part:: An Encoding SHALL support specifying the aggregation method as one of `min`, `max`, `average`, `sum`, `first`, `last`, `median` or `stdDev`.
+part:: A Renderer SHALL support combining the values using the minimum (`min`), maximum (`max`), arithmetic mean (`average`), sum (`sum`), first value along the dimension (`first`), last value along the dimension (`last`), median (`median`) or standard deviation (`stdDev`).
+====
+
+// TODO(review): confirm whether `stdDev` is the population or the sample standard deviation.

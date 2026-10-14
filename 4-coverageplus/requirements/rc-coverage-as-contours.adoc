@@ -1,0 +1,70 @@
+// NOTE: Including an extra heading level for conformance class alone in their section
+==== Coverage as contours
+
+[[rc-table-coverage-as-contours]]
+
+[requirements_class]
+.Coverage as contours
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/cartosym-4/1.0/req/coverage-as-contours
+inherit:: http://www.opengis.net/spec/cartosym-1/2.0/req/coverage
+subject:: Style encodings and Renderers
+====
+
+[[req-coverage-as-contours-coverage-contours]]
+===== Symbolizer `coverageContours` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/coverage-as-contours/coverage-contours
+part:: An Encoding SHALL support defining a `coverageContours` Symbolizer property as a ContourSettings object including a `contourMinValue`, an optional `contourMaxValue`, a `contourGap` and a `contourValue`.
+part:: A Renderer SHALL support portraying a coverage for which `coverageContours` is specified as contours, as if it were a MultiLineString or MultiPolygon vector feature, drawn using the `stroke` and/or `fill` Symbolizer properties.
+====
+
+[[req-coverage-as-contours-contour-value]]
+===== ContourSettings `contourValue` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/coverage-as-contours/contour-value
+part:: An Encoding SHALL support defining a `contourValue` ContourSettings property as an Expression (typically an Identifier Expression referring to a coverage field).
+part:: A Renderer SHALL support computing contours from the value resolved from the `contourValue` property for each coverage cell.
+====
+
+// TODO(review): the table describes `contourValue` as the "value for which to draw contours" (a double), while the UML comment indicates an IdentifierExpression. Confirm whether it selects the field to contour or a single contour level.
+
+[[req-coverage-as-contours-contour-min-value]]
+===== ContourSettings `contourMinValue` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/coverage-as-contours/contour-min-value
+part:: An Encoding SHALL support defining a `contourMinValue` ContourSettings property as a double.
+part:: A Renderer SHALL support drawing no contour for values lower than `contourMinValue`, the first contour being drawn at `contourMinValue`.
+====
+
+[[req-coverage-as-contours-contour-max-value]]
+===== ContourSettings `contourMaxValue` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/coverage-as-contours/contour-max-value
+part:: An Encoding SHALL support defining an optional `contourMaxValue` ContourSettings property as a double.
+part:: A Renderer SHALL support drawing no contour for values greater than `contourMaxValue` when it is specified.
+====
+
+[[req-coverage-as-contours-contour-gap]]
+===== ContourSettings `contourGap` property
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/coverage-as-contours/contour-gap
+part:: An Encoding SHALL support defining a `contourGap` ContourSettings property as a positive double.
+part:: A Renderer SHALL support drawing contours at every value equal to `contourMinValue` plus an integer multiple of `contourGap`, within the range of values to contour.
+====
