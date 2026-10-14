@@ -5,7 +5,7 @@ This Standard defines conformance classes for:
 
 * additional conformance classes extending the core Cartographic Symbology model with:
    ** the ability to select a particular geometry to render in a symbolizer (<<rc-symbolizer-geometry,Section 7>>),
-   ** standardized functions for spatial and temporal relations, as well as geometry manipulation (<<rc-spatial,Section 8>>).
+   ** standardized functions for spatial and temporal relations, as well as geometry manipulation (<<rc-spatial-relations,Section 8>>).
 
 ////
 In addition, the following annexes are included:
