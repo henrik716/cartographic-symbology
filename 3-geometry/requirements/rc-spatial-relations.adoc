@@ -1,0 +1,136 @@
+// NOTE: Including an extra heading level for conformance class alone in their section
+==== Spatial Relation Functions
+
+[[rc-table-spatial-relations]]
+
+[requirements_class]
+.Spatial Relation Functions
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/cartosym-3/1.0/req/spatial-relations
+inherit:: http://www.opengis.net/spec/cartosym-1/2.0/req/core
+subject:: Style encodings and Renderers
+====
+
+[[req-spatial-relations-geometry-identifiers]]
+===== Geometry System Identifiers
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/geometry-identifiers
+part:: An Encoding SHALL support defining expressions using the `feature.geometry` and `dataLayer.featuresGeometry` System Identifiers, as well as geometry literals (including bounding boxes), as arguments of spatial relation functions.
+part:: A Renderer SHALL support resolving the `feature.geometry` System Identifier to the geometry of the feature being portrayed, and the `dataLayer.featuresGeometry` System Identifier to the geometries of all features of the data layer being portrayed.
+====
+
+// TODO(review): define the expected behavior when the two geometry arguments are in different coordinate reference systems.
+
+[[req-spatial-relations-s-intersects]]
+===== Spatial `s_intersects` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-intersects
+part:: An Encoding SHALL support defining a call to the `s_intersects` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_intersects(a, b)` to true if and only if the two geometries have at least one point in common (i.e., they are not disjoint), as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====
+
+[[req-spatial-relations-s-contains]]
+===== Spatial `s_contains` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-contains
+part:: An Encoding SHALL support defining a call to the `s_contains` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_contains(a, b)` to true if and only if no point of `b` lies in the exterior of `a`, and at least one point of the interior of `b` lies in the interior of `a`, as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====
+
+[[req-spatial-relations-s-crosses]]
+===== Spatial `s_crosses` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-crosses
+part:: An Encoding SHALL support defining a call to the `s_crosses` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_crosses(a, b)` to true if and only if the two geometries have some but not all interior points in common, and the dimension of their intersection is less than the maximum dimension of the two geometries, as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====
+
+[[req-spatial-relations-s-disjoint]]
+===== Spatial `s_disjoint` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-disjoint
+part:: An Encoding SHALL support defining a call to the `s_disjoint` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_disjoint(a, b)` to true if and only if the two geometries have no point in common, as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====
+
+[[req-spatial-relations-s-equals]]
+===== Spatial `s_equals` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-equals
+part:: An Encoding SHALL support defining a call to the `s_equals` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_equals(a, b)` to true if and only if the two geometries are topologically equal (i.e., `a` is within `b` and `b` is within `a`), as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====
+
+[[req-spatial-relations-s-overlaps]]
+===== Spatial `s_overlaps` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-overlaps
+part:: An Encoding SHALL support defining a call to the `s_overlaps` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_overlaps(a, b)` to true if and only if the two geometries have the same dimension, their interiors intersect, the intersection has the same dimension as the geometries, and neither geometry contains the other, as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====
+
+[[req-spatial-relations-s-touches]]
+===== Spatial `s_touches` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-touches
+part:: An Encoding SHALL support defining a call to the `s_touches` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_touches(a, b)` to true if and only if the two geometries have at least one point in common, but their interiors do not intersect, as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====
+
+[[req-spatial-relations-s-within]]
+===== Spatial `s_within` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-within
+part:: An Encoding SHALL support defining a call to the `s_within` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_within(a, b)` to true if and only if `s_contains(b, a)` is true, as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====
+
+[[req-spatial-relations-s-covers]]
+===== Spatial `s_covers` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-covers
+part:: An Encoding SHALL support defining a call to the `s_covers` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_covers(a, b)` to true if and only if no point of `b` lies in the exterior of `a` and `b` is not empty, i.e., `a` and `b` match one of the DE-9IM masks specified for `covers` in this requirements class, as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====
+
+[[req-spatial-relations-s-covered-by]]
+===== Spatial `s_coveredBy` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/spatial-relations/s-covered-by
+part:: An Encoding SHALL support defining a call to the `s_coveredBy` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_coveredBy(a, b)` to true if and only if `s_covers(b, a)` is true, as defined by the Dimensionally Extended 9-Intersection Model (DE-9IM).
+====

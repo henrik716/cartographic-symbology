@@ -32,16 +32,16 @@ SpatialRelationFunctions --> Geometry
 [width="90%",options="header"]
 |===
 | Name         | Parameters                          | Return type | Definition
-| s_intersects | s_intersects(Geometry a, Geometry b)| bool        |
-| s_contains   | s_contains(Geometry a, Geometry b)  | bool        |
-| s_crosses    | s_crosses(Geometry a, Geometry b)   | bool        |
-| s_disjoint   | s_disjoint(Geometry a, Geometry b)  | bool        |
-| s_equals     | s_equals(Geometry a, Geometry b)    | bool        |
-| s_overlaps   | s_overlaps(Geometry a, Geometry b)  | bool        |
-| s_touches    | s_touches(Geometry a, Geometry b)   | bool        |
-| s_within     | s_within(Geometry a, Geometry b)    | bool        |
-| s_covers     | s_covers(Geometry a, Geometry b)    | bool        |
-| s_coveredBy  | s_coveredBy(Geometry a, Geometry b) | bool        |
+| s_intersects | s_intersects(Geometry a, Geometry b)| bool        | True if `a` and `b` have at least one point in common
+| s_contains   | s_contains(Geometry a, Geometry b)  | bool        | True if `b` lies in `a` and their interiors have at least one point in common
+| s_crosses    | s_crosses(Geometry a, Geometry b)   | bool        | True if `a` and `b` have some but not all interior points in common, with an intersection of lower dimension
+| s_disjoint   | s_disjoint(Geometry a, Geometry b)  | bool        | True if `a` and `b` have no point in common
+| s_equals     | s_equals(Geometry a, Geometry b)    | bool        | True if `a` and `b` are topologically equal
+| s_overlaps   | s_overlaps(Geometry a, Geometry b)  | bool        | True if `a` and `b` have the same dimension and share some but not all points, with an intersection of the same dimension
+| s_touches    | s_touches(Geometry a, Geometry b)   | bool        | True if `a` and `b` have at least one point in common but their interiors do not intersect
+| s_within     | s_within(Geometry a, Geometry b)    | bool        | True if `a` lies in `b` (same as `s_contains(b, a)`)
+| s_covers     | s_covers(Geometry a, Geometry b)    | bool        | True if no point of `b` lies in the exterior of `a`
+| s_coveredBy  | s_coveredBy(Geometry a, Geometry b) | bool        | True if no point of `a` lies in the exterior of `b` (same as `s_covers(b, a)`)
 |===
 
 NOTE: Although _s_covers()_ and _s_coveredBy()_ are not defined in _Simple Features Access (SFA)_, they are part of the _Dimensionally Extended-9 Intersection Model (DE-9IM)_.
@@ -428,18 +428,18 @@ GeometryManipulationFunctions --> Geometry
 [width="90%",options="header"]
 |===
 | Name            | Parameters               | Return type  | Definition
-| s_intersection  | (Geometry a, Geometry b) | Geometry     |
-| s_union         | (Geometry a, Geometry b) | Geometry     |
-| s_difference    | (Geometry a, Geometry b) | Geometry     |
-| s_symDifference | (Geometry a, Geometry b) | Geometry     |
-| s_convexHull    | (Geometry a)             | Geometry     |
-| s_buffer        | (Geometry a, double d)   | Geometry     |
-| s_envelope      | (Geometry a)             | BoundingBox  |
-| s_centroid      | (Geometry a)             | Point        |
-| s_offsetCurve   | (Geometry a, double d)   | Geometry     |
-| s_voronoiLines  | (Geometry a)             | Geometry     |
-| s_voronoiPolygons | (Geometry a)           | Geometry     |
-| s_delaunayTriangles | (Geometry a)          | Geometry     |
+| s_intersection  | (Geometry a, Geometry b) | Geometry     | Point set intersection of `a` and `b`
+| s_union         | (Geometry a, Geometry b) | Geometry     | Point set union of `a` and `b`
+| s_difference    | (Geometry a, Geometry b) | Geometry     | Points of `a` that are not in `b`
+| s_symDifference | (Geometry a, Geometry b) | Geometry     | Points in either `a` or `b` but not in both
+| s_convexHull    | (Geometry a)             | Geometry     | Smallest convex geometry containing `a`
+| s_buffer        | (Geometry a, double d)   | Geometry     | All points within distance `d` of `a`
+| s_envelope      | (Geometry a)             | BoundingBox  | Bounding box of `a`
+| s_centroid      | (Geometry a)             | Point        | Geometric center of mass of `a`
+| s_offsetCurve   | (Geometry a, double d)   | Geometry     | Line parallel to `a` at distance `d`
+| s_voronoiLines  | (Geometry a)             | Geometry     | Edges of the Voronoi diagram of the vertices of `a`
+| s_voronoiPolygons | (Geometry a)           | Geometry     | Cells of the Voronoi diagram of the vertices of `a`
+| s_delaunayTriangles | (Geometry a)          | Geometry     | Delaunay triangulation of the vertices of `a`
 |===
 
 ==== Requirements

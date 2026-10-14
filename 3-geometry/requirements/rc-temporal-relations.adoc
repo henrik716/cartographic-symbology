@@ -1,0 +1,184 @@
+// NOTE: Including an extra heading level for conformance class alone in their section
+==== Temporal Relation Functions
+
+[[rc-table-temporal-relations]]
+
+[requirements_class]
+.Temporal Relation Functions
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/cartosym-3/1.0/req/temporal-relations
+inherit:: http://www.opengis.net/spec/cartosym-1/2.0/req/core
+subject:: Style encodings and Renderers
+====
+
+In the following requirements, `a.start` and `a.end` denote the start and end of the first argument, and `b.start` and `b.end` those of the second argument.
+A TimeInstant argument is treated as a TimeInterval whose start and end are both equal to that instant.
+These definitions correspond to the temporal functions of OGC CQL2.
+
+[[req-temporal-relations-t-after]]
+===== Temporal `t_after` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-after
+part:: An Encoding SHALL support defining a call to the `t_after` standard function taking two TimeInstant arguments or two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_after(a, b)` to true if and only if `a.start` is later than `b.end`.
+====
+
+[[req-temporal-relations-t-before]]
+===== Temporal `t_before` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-before
+part:: An Encoding SHALL support defining a call to the `t_before` standard function taking two TimeInstant arguments or two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_before(a, b)` to true if and only if `a.end` is earlier than `b.start`.
+====
+
+[[req-temporal-relations-t-disjoint]]
+===== Temporal `t_disjoint` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-disjoint
+part:: An Encoding SHALL support defining a call to the `t_disjoint` standard function taking two TimeInstant arguments or two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_disjoint(a, b)` to true if and only if `a.start` is later than `b.end` or `a.end` is earlier than `b.start`.
+====
+
+[[req-temporal-relations-t-equals]]
+===== Temporal `t_equals` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-equals
+part:: An Encoding SHALL support defining a call to the `t_equals` standard function taking two TimeInstant arguments or two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_equals(a, b)` to true if and only if `a.start` is equal to `b.start` and `a.end` is equal to `b.end`.
+====
+
+[[req-temporal-relations-t-intersects]]
+===== Temporal `t_intersects` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-intersects
+part:: An Encoding SHALL support defining a call to the `t_intersects` standard function taking two TimeInstant arguments or two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_intersects(a, b)` to true if and only if `a.start` is earlier than or equal to `b.end` and `a.end` is later than or equal to `b.start`.
+====
+
+[[req-temporal-relations-t-contains]]
+===== Temporal `t_contains` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-contains
+part:: An Encoding SHALL support defining a call to the `t_contains` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_contains(a, b)` to true if and only if `a.start` is earlier than `b.start` and `a.end` is later than `b.end`.
+====
+
+[[req-temporal-relations-t-during]]
+===== Temporal `t_during` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-during
+part:: An Encoding SHALL support defining a call to the `t_during` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_during(a, b)` to true if and only if `a.start` is later than `b.start` and `a.end` is earlier than `b.end`.
+====
+
+[[req-temporal-relations-t-finished-by]]
+===== Temporal `t_finishedBy` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-finished-by
+part:: An Encoding SHALL support defining a call to the `t_finishedBy` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_finishedBy(a, b)` to true if and only if `a.start` is earlier than `b.start` and `a.end` is equal to `b.end`.
+====
+
+[[req-temporal-relations-t-finishes]]
+===== Temporal `t_finishes` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-finishes
+part:: An Encoding SHALL support defining a call to the `t_finishes` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_finishes(a, b)` to true if and only if `a.start` is later than `b.start` and `a.end` is equal to `b.end`.
+====
+
+[[req-temporal-relations-t-meets]]
+===== Temporal `t_meets` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-meets
+part:: An Encoding SHALL support defining a call to the `t_meets` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_meets(a, b)` to true if and only if `a.end` is equal to `b.start`.
+====
+
+[[req-temporal-relations-t-met-by]]
+===== Temporal `t_metBy` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-met-by
+part:: An Encoding SHALL support defining a call to the `t_metBy` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_metBy(a, b)` to true if and only if `a.start` is equal to `b.end`.
+====
+
+// TODO(review): the overview UML and table still name this function `t_meetBy`; fixed by PR #130.
+
+[[req-temporal-relations-t-overlapped-by]]
+===== Temporal `t_overlappedBy` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-overlapped-by
+part:: An Encoding SHALL support defining a call to the `t_overlappedBy` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_overlappedBy(a, b)` to true if and only if `a.start` is later than `b.start`, `a.start` is earlier than `b.end` and `a.end` is later than `b.end`.
+====
+
+[[req-temporal-relations-t-overlaps]]
+===== Temporal `t_overlaps` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-overlaps
+part:: An Encoding SHALL support defining a call to the `t_overlaps` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_overlaps(a, b)` to true if and only if `a.start` is earlier than `b.start`, `a.end` is later than `b.start` and `a.end` is earlier than `b.end`.
+====
+
+[[req-temporal-relations-t-started-by]]
+===== Temporal `t_startedBy` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-started-by
+part:: An Encoding SHALL support defining a call to the `t_startedBy` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_startedBy(a, b)` to true if and only if `a.start` is equal to `b.start` and `a.end` is later than `b.end`.
+====
+
+[[req-temporal-relations-t-starts]]
+===== Temporal `t_starts` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/temporal-relations/t-starts
+part:: An Encoding SHALL support defining a call to the `t_starts` standard function taking two TimeInterval arguments.
+part:: A Renderer SHALL support evaluating `t_starts(a, b)` to true if and only if `a.start` is equal to `b.start` and `a.end` is earlier than `b.end`.
+====

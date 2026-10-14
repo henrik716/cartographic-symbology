@@ -1,0 +1,157 @@
+// NOTE: Including an extra heading level for conformance class alone in their section
+==== Geometry Manipulation Functions
+
+[[rc-table-geometry-manipulation]]
+
+[requirements_class]
+.Geometry Manipulation Functions
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/cartosym-3/1.0/req/geometry-manipulation
+inherit:: http://www.opengis.net/spec/cartosym-1/2.0/req/core
+subject:: Style encodings and Renderers
+====
+
+[[req-geometry-manipulation-s-intersection]]
+===== Geometry `s_intersection` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-intersection
+part:: An Encoding SHALL support defining a call to the `s_intersection` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_intersection(a, b)` as a Geometry representing the point set intersection of `a` and `b`.
+====
+
+[[req-geometry-manipulation-s-union]]
+===== Geometry `s_union` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-union
+part:: An Encoding SHALL support defining a call to the `s_union` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_union(a, b)` as a Geometry representing the point set union of `a` and `b`.
+====
+
+[[req-geometry-manipulation-s-difference]]
+===== Geometry `s_difference` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-difference
+part:: An Encoding SHALL support defining a call to the `s_difference` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_difference(a, b)` as a Geometry representing the points of `a` that are not points of `b`.
+====
+
+[[req-geometry-manipulation-s-sym-difference]]
+===== Geometry `s_symDifference` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-sym-difference
+part:: An Encoding SHALL support defining a call to the `s_symDifference` standard function taking two Geometry arguments.
+part:: A Renderer SHALL support evaluating `s_symDifference(a, b)` as a Geometry representing the points that are points of either `a` or `b`, but not of both.
+====
+
+[[req-geometry-manipulation-s-buffer]]
+===== Geometry `s_buffer` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-buffer
+part:: An Encoding SHALL support defining a call to the `s_buffer` standard function taking a Geometry argument and a numeric distance argument.
+part:: A Renderer SHALL support evaluating `s_buffer(a, d)` as a Geometry representing all points whose distance from `a` is less than or equal to `d`.
+====
+
+// TODO(review): the units of the distance `d` (coordinate reference system units or a uom-qualified value) and the behavior for negative distances.
+
+[[req-geometry-manipulation-s-convex-hull]]
+===== Geometry `s_convexHull` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-convex-hull
+part:: An Encoding SHALL support defining a call to the `s_convexHull` standard function taking a Geometry argument.
+part:: A Renderer SHALL support evaluating `s_convexHull(a)` as a Geometry representing the smallest convex geometry containing all points of `a`.
+====
+
+[[req-geometry-manipulation-s-envelope]]
+===== Geometry `s_envelope` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-envelope
+part:: An Encoding SHALL support defining a call to the `s_envelope` standard function taking a Geometry argument.
+part:: A Renderer SHALL support evaluating `s_envelope(a)` as a BoundingBox whose `lowerBound` and `upperBound` are the smallest and greatest values of each coordinate of `a`.
+====
+
+[[req-geometry-manipulation-s-centroid]]
+===== Geometry `s_centroid` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-centroid
+part:: An Encoding SHALL support defining a call to the `s_centroid` standard function taking a Geometry argument.
+part:: A Renderer SHALL support evaluating `s_centroid(a)` as a Point located at the geometric center of mass of `a`.
+====
+
+// TODO(review): `s_centroid` is not defined in the CartoSym-JSON schema.
+
+[[req-geometry-manipulation-s-offset-curve]]
+===== Geometry `s_offsetCurve` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-offset-curve
+part:: An Encoding SHALL support defining a call to the `s_offsetCurve` standard function taking a Geometry argument and a numeric distance argument.
+part:: A Renderer SHALL support evaluating `s_offsetCurve(a, d)` as a Geometry representing a line parallel to `a` at distance `d`.
+====
+
+// TODO(review): this function is not defined by OGC Simple Features nor the CartoSym-JSON schema; define the side for positive and negative `d`, the units of `d`, and the treatment of polygons.
+
+[[req-geometry-manipulation-s-voronoi-lines]]
+===== Geometry `s_voronoiLines` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-voronoi-lines
+part:: An Encoding SHALL support defining a call to the `s_voronoiLines` standard function taking a Geometry argument.
+part:: A Renderer SHALL support evaluating `s_voronoiLines(a)` as a Geometry representing the edges of the Voronoi diagram of the vertices of `a`.
+====
+
+// TODO(review): this function is not defined by OGC Simple Features nor the CartoSym-JSON schema; confirm it belongs in this Standard.
+
+[[req-geometry-manipulation-s-voronoi-polygons]]
+===== Geometry `s_voronoiPolygons` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-voronoi-polygons
+part:: An Encoding SHALL support defining a call to the `s_voronoiPolygons` standard function taking a Geometry argument.
+part:: A Renderer SHALL support evaluating `s_voronoiPolygons(a)` as a Geometry representing the cells of the Voronoi diagram of the vertices of `a`, as polygons.
+====
+
+// TODO(review): this function is not defined by OGC Simple Features nor the CartoSym-JSON schema; confirm it belongs in this Standard and how the cells are clipped.
+
+[[req-geometry-manipulation-s-delaunay-triangles]]
+===== Geometry `s_delaunayTriangles` function
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geometry-manipulation/s-delaunay-triangles
+part:: An Encoding SHALL support defining a call to the `s_delaunayTriangles` standard function taking a Geometry argument.
+part:: A Renderer SHALL support evaluating `s_delaunayTriangles(a)` as a Geometry representing the Delaunay triangulation of the vertices of `a`, as triangular polygons.
+====
+
+// TODO(review): this function is not defined by OGC Simple Features nor the CartoSym-JSON schema; confirm it belongs in this Standard.
