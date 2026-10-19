@@ -67,7 +67,7 @@ part:: An Encoding SHALL support defining a `opacityMap` Symbolizer property as 
 part:: A Renderer SHALL support portraying each coverage cell with the opacity mapped from its `singleChannel` value by the `opacityMap`, interpolating linearly between the opacities of the two closest entries and using the opacity of the first or last entry for values outside the range of the map.
 ====
 
-// TODO(review): confirm linear interpolation and clamping as the default behavior for `colorMap` and `opacityMap`.
+// TODO(review): confirm linear interpolation and clamping as the default behavior for `colorMap` and `opacityMap` (see #149).
 
 [[req-coverage-gamma]]
 ===== Symbolizer `gamma` property

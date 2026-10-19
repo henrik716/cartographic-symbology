@@ -37,6 +37,8 @@ part:: A Renderer SHALL support filling vector geometry with a pattern of parall
 | distance  | Distance between two consecutive hatches     | float                 | 0..1
 |===
 
+// TODO(review): the table says the hatch `angle` is clockwise, while other angles are counter-clockwise from the right (see #146).
+
 .Input shape to be hatched
 image::figures/hatches_empty.png[]
 

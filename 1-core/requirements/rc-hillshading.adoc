@@ -47,7 +47,7 @@ part:: An Encoding SHALL support defining a `sun` HillShading property as an obj
 part:: A Renderer SHALL support computing the shade of each cell for a light source at the `azimuth` angle (relative to North) and `elevation` angle (relative to the ground) specified by the `sun` property.
 ====
 
-// TODO(review): state the direction of `azimuth` (e.g., clockwise from North, as a compass bearing). Both examples use 45, which is north-east under either convention.
+// TODO(review): state the direction of `azimuth` (e.g., clockwise from North, as a compass bearing) (see #146).
 
 [[req-hill-shading-color-map]]
 ===== HillShading `colorMap` property

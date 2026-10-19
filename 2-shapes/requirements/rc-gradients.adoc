@@ -76,4 +76,4 @@ part:: An Encoding SHALL support defining a `size` Gradient property.
 part:: A Renderer SHALL support scaling the extent of the gradient according to the `size` property, in pixels unless qualified with another unit.
 ====
 
-// TODO(review): moved from Part 1 `/req/vector/gradient*` (see #86), rewritten against the Part 2 Gradient model. Define the reference frame of `position` and `size`: relative to each feature (e.g., its bounding box) or to the map.
+// TODO(review): moved from Part 1 `/req/vector/gradient*` (see #86), rewritten against the Part 2 Gradient model. Define the reference frame of `position` and `size` (see #153).

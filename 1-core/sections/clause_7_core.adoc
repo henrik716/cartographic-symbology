@@ -1014,6 +1014,8 @@ The following default values are defined by this encoding.
 | singleChannel  | For single-field coverage: fields[0]
 |===
 
+// TODO(review): the default `colorChannels` uses the first three fields unscaled, while `colorChannels` is 0 to 1 (see #150).
+
 .Stroke class default values
 [width="90%",options="header"]
 |===
@@ -1057,7 +1059,7 @@ part:: A Renderer SHALL support using the default values defined in this section
 
 NOTE: The default Marker applies to features of every geometry type, so that every feature is visible by default. A style that sets no marker therefore draws a Dot at each point, at each vertex of a line and at the centroid of each polygon. A typical base style unsets the marker for lines and polygons, unless it wants this default behavior, for example with `[dataLayer.featuresGeometryDimensions > 0] { marker: null; }` in CSCSS. An empty list of elements (`marker: { elements: [] }`) also unsets it, while an empty `marker: { }` still yields the default Dot.
 
-// TODO(review): the JSON schema rejects `marker: null`, `marker: { elements: [] }` and `marker: { }`. The Dot class default values (`size` 10 px, `color` white) set properties that the Dot class does not have: clause 8 and the JSON schema draw a Dot with the `width` and `color` of its `stroke`.
+// TODO(review): the JSON schema rejects `marker: null`, `marker: { elements: [] }` and `marker: { }` (see #143). The Dot class default values set `size` and `color`, which the Dot class does not have (see #144).
 
 === Vendor Extensions
 
