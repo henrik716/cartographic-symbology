@@ -1059,7 +1059,7 @@ part:: A Renderer SHALL support using the default values defined in this section
 
 NOTE: The default Marker applies to features of every geometry type, so that every feature is visible by default. A style that sets no marker therefore draws a Dot at each point, at each vertex of a line and at the centroid of each polygon. A typical base style unsets the marker for lines and polygons, unless it wants this default behavior, for example with `[dataLayer.featuresGeometryDimensions > 0] { marker: null; }` in CSCSS. An empty list of elements (`marker: { elements: [] }`) also unsets it, while an empty `marker: { }` still yields the default Dot.
 
-// TODO(review): the JSON schema rejects `marker: null`, `marker: { elements: [] }` and `marker: { }` (see #143). The Dot class default values set `size` and `color`, which the Dot class does not have (see #144).
+// TODO(review): the JSON schema rejects `marker: null`, `marker: { elements: [] }` and `marker: { }` (see #143). The Dot class default values set `size` and `color`, which the Dot class does not have: express the default Dot either as its stroke (width 10 px, white), or add `size` and `color` to Dot that set its stroke; the result is the same (see #144).
 
 === Vendor Extensions
 

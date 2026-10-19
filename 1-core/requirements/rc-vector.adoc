@@ -86,9 +86,9 @@ part:: A Renderer SHALL support drawing the Graphics as a round dot using the wi
 [%metadata]
 identifier:: /req/vector/image
 part:: An Encoding SHALL support defining an Image Graphic with an `image` property referencing an image resource, and an optional uom-qualified `hotSpot` position within the image.
-part:: A Renderer SHALL support drawing the referenced image so that its `hotSpot` (by default, its top-left corner, `{ 0, 0 }`) is located at the position of the Graphic.
+part:: A Renderer SHALL support drawing the referenced image so that its `hotSpot` (by default, its center, `{ 0.5, 0.5 }`) is located at the position of the Graphic.
 
-// TODO(review): libCartoSym defaults `hotSpot` to the center (`{ 0.5, 0.5 }`). State whether `tint`, `blackTint` and `alphaThreshold` belong in this requirements class (see #145).
+// TODO(review): state whether `tint`, `blackTint` and `alphaThreshold` belong in this requirements class (see #145).
 ====
 
 [[req-vector-text]]

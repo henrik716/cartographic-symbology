@@ -51,7 +51,7 @@ part:: A Renderer SHALL support interpolating the color and opacity of the gradi
 [%metadata]
 identifier:: /req/gradients/angle
 part:: An Encoding SHALL support defining an `angle` Gradient property as a float.
-part:: A Renderer SHALL support orienting the gradient according to the `angle` property, in degrees counter-clockwise from the direction to the right (0 degrees).
+part:: A Renderer SHALL support orienting the gradient according to the `angle` property, in degrees, where 0 points to the right and angles turn counter-clockwise as seen on the map.
 ====
 
 [[req-gradients-position]]
