@@ -88,7 +88,5 @@ part:: A Renderer SHALL support replacing a substring with another string using 
 [%metadata]
 identifier:: /req/text-manipulation/format
 part:: An Encoding SHALL support defining a `format` function that formats a string.
-part:: A Renderer SHALL support formatting a string using the `format` function.
+part:: A Renderer SHALL support formatting a string using the `format` function, whose format string uses the conversion specifiers of the C `printf` function (ANSI C).
 ====
-
-// TODO(review): specify the syntax of the `format` format string (e.g., printf-style conversion specifiers).

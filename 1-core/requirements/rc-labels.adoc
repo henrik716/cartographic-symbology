@@ -33,7 +33,7 @@ part:: A Renderer SHALL support omitting labels which cannot be placed without o
 identifier:: /req/labels/placement
 part:: An Encoding SHALL support defining a `placement` Label property as a LabelPlacement object including a `priority`, a `minSpacing` and a `maxSpacing`.
 part:: A Renderer SHALL support placing labels so that a label with a higher `priority` is placed in preference to a conflicting label with a lower `priority`.
-part:: A Renderer SHALL support repeating a label so that the distance between repetitions of that label is at least `minSpacing` and, where space allows, at most `maxSpacing`.
+part:: A Renderer SHALL support repeating a label so that the distance between repetitions of that label is at least `minSpacing` and, where space allows, at most `maxSpacing`, both in pixels unless qualified with another unit (<<graphical-units-of-measure,Graphical Units of Measure>>).
 ====
 
-// TODO(review): confirm the units of `minSpacing` / `maxSpacing` and whether a higher `priority` value means higher priority.
+// TODO(review): confirm that a higher `priority` value means a higher priority.

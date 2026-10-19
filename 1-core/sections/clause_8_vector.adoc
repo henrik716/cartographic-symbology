@@ -167,6 +167,7 @@ A Stroke object inherits from a base _StrokeStyling_ class, which is re-used in 
 | width     | Width of the stroke                  | float (uom-qualified) | 0..1
 |===
 
+[[graphical-units-of-measure]]
 ===== Graphical Units of Measure
 
 [#img-uml-class-graphicalunits]

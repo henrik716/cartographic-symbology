@@ -18,7 +18,9 @@ subject:: Style encodings and Renderers
 [%metadata]
 identifier:: /req/hill-shading/hill-shading
 part:: An Encoding SHALL support defining a `hillShading` Symbolizer property as an object including `factor`, `sun`, `colorMap` and `opacityMap` properties.
+part:: A Renderer SHALL support computing the terrain surface normal of each cell from the differences in elevation between neighbouring samples of the elevation coverage at the resolution being rendered, over the horizontal distance between those samples, in the same units as the elevation.
 part:: A Renderer SHALL support portraying an elevation coverage with a shade value computed for each cell as the dot product of the unit normal of the terrain surface and the unit vector pointing towards the sun, clamped to the range 0 to 1, where 0 is full shade (the sun at 90 degrees or more from the normal) and 1 is no shade (the sun in the direction of the normal).
+part:: A Renderer SHALL support, where the HillShading has no `colorMap`, multiplying the red, green and blue components of each cell by its shade value.
 ====
 
 [[req-hill-shading-factor]]
@@ -32,7 +34,7 @@ part:: An Encoding SHALL support defining a `factor` HillShading property as a f
 part:: A Renderer SHALL support multiplying the horizontal components of the terrain surface normal by the `factor` property before normalizing it, so that a `factor` of 1 shades the terrain as it is and a larger `factor` exaggerates the relief.
 ====
 
-// TODO(review): state over which horizontal distance the surface normal is computed (e.g., metres on the ellipsoid, or the cell size of the coverage as rendered). The effect of a given `factor` depends on it: `factor: 56` in examples 8 and 9 suits a global view, but makes every slope facing away from the sun fully dark on a DEM with 100 m cells. Also state how the shade is applied when `hillShading` has no `colorMap` (e.g., by multiplying the color of the cell).
+NOTE: Slopes are measured between the samples being rendered, so the same `factor` gives a stronger relief at a finer resolution. The `factor` that suits a style depends on the resolution of the elevation data it is used with.
 
 [[req-hill-shading-sun]]
 ===== HillShading `sun` property

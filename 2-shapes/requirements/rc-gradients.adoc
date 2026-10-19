@@ -51,7 +51,7 @@ part:: A Renderer SHALL support interpolating the color and opacity of the gradi
 [%metadata]
 identifier:: /req/gradients/angle
 part:: An Encoding SHALL support defining an `angle` Gradient property as a float.
-part:: A Renderer SHALL support orienting the gradient according to the `angle` property.
+part:: A Renderer SHALL support orienting the gradient according to the `angle` property, in degrees counter-clockwise from the direction to the right (0 degrees).
 ====
 
 [[req-gradients-position]]
@@ -62,7 +62,7 @@ part:: A Renderer SHALL support orienting the gradient according to the `angle` 
 [%metadata]
 identifier:: /req/gradients/position
 part:: An Encoding SHALL support defining a `position` Gradient property.
-part:: A Renderer SHALL support positioning the origin of the gradient according to the `position` property.
+part:: A Renderer SHALL support positioning the origin of the gradient according to the `position` property, in pixels unless qualified with another unit.
 ====
 
 [[req-gradients-size]]
@@ -73,7 +73,7 @@ part:: A Renderer SHALL support positioning the origin of the gradient according
 [%metadata]
 identifier:: /req/gradients/size
 part:: An Encoding SHALL support defining a `size` Gradient property.
-part:: A Renderer SHALL support scaling the extent of the gradient according to the `size` property.
+part:: A Renderer SHALL support scaling the extent of the gradient according to the `size` property, in pixels unless qualified with another unit.
 ====
 
-// TODO(review): moved from Part 1 `/req/vector/gradient*` (see #86), rewritten against the Part 2 Gradient model. Define the units of `angle` and the reference frame of `position` and `size`.
+// TODO(review): moved from Part 1 `/req/vector/gradient*` (see #86), rewritten against the Part 2 Gradient model. Define the reference frame of `position` and `size`: relative to each feature (e.g., its bounding box) or to the map.
