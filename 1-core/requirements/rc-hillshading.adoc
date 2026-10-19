@@ -18,7 +18,7 @@ subject:: Style encodings and Renderers
 [%metadata]
 identifier:: /req/hill-shading/hill-shading
 part:: An Encoding SHALL support defining a `hillShading` Symbolizer property as an object including `factor`, `sun`, `colorMap` and `opacityMap` properties.
-part:: A Renderer SHALL support portraying an elevation coverage with a shade value computed for each cell from the slope and aspect of the terrain relative to the orientation of the sun.
+part:: A Renderer SHALL support portraying an elevation coverage with a shade value computed for each cell as the dot product of the unit normal of the terrain surface and the unit vector pointing towards the sun, clamped to the range 0 to 1, where 0 is full shade (the sun at 90 degrees or more from the normal) and 1 is no shade (the sun in the direction of the normal).
 ====
 
 [[req-hill-shading-factor]]
@@ -29,10 +29,10 @@ part:: A Renderer SHALL support portraying an elevation coverage with a shade va
 [%metadata]
 identifier:: /req/hill-shading/factor
 part:: An Encoding SHALL support defining a `factor` HillShading property as a float.
-part:: A Renderer SHALL support scaling the intensity of the shading by the `factor` property.
+part:: A Renderer SHALL support multiplying the horizontal components of the terrain surface normal by the `factor` property before normalizing it, so that a `factor` of 1 shades the terrain as it is and a larger `factor` exaggerates the relief.
 ====
 
-// TODO(review): examples 8 and 9 use `factor: 56`, which does not work as an intensity multiplier (almost every cell renders black). Confirm the intended meaning (e.g., vertical exaggeration or a percentage), and the range of the computed shade value used by the HillShading `colorMap` and `opacityMap` (example 9's maps stop at 0.55).
+// TODO(review): state over which horizontal distance the surface normal is computed (e.g., metres on the ellipsoid, or the cell size of the coverage as rendered). The effect of a given `factor` depends on it: `factor: 56` in examples 8 and 9 suits a global view, but makes every slope facing away from the sun fully dark on a DEM with 100 m cells. Also state how the shade is applied when `hillShading` has no `colorMap` (e.g., by multiplying the color of the cell).
 
 [[req-hill-shading-sun]]
 ===== HillShading `sun` property

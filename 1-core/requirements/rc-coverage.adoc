@@ -18,10 +18,10 @@ subject:: Style encodings and Renderers
 [%metadata]
 identifier:: /req/coverage/color-channels
 part:: An Encoding SHALL support defining a `colorChannels` Symbolizer property as a Color object.
-part:: A Renderer SHALL support portraying each coverage cell with the red, green and blue components resolved from the `colorChannels` property for that cell.
+part:: A Renderer SHALL support portraying each coverage cell with the red, green and blue components resolved from the `colorChannels` property for that cell, each in the range 0 to 1.
 ====
 
-// TODO(review): example 6 sets `colorChannels` to Sentinel-2 bands (digital numbers, 0 to 10000), while the JSON schema types `colorChannels` as 0 to 1. Define how channel values are scaled to color components, or scale them in the example.
+NOTE: Band values in another range are scaled in the style, as in example 6, which divides Sentinel-2 digital numbers by 2500.
 
 [[req-coverage-alpha-channel]]
 ===== Symbolizer `alphaChannel` property

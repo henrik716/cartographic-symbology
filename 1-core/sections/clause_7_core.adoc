@@ -1055,7 +1055,9 @@ part:: An Encoding SHALL support omitting Symbolizer properties and object membe
 part:: A Renderer SHALL support using the default values defined in this section for Symbolizer properties and object members which are not set by any selected StylingRule.
 ====
 
-// TODO(review): the default Marker (a single default Dot, white, 10 px) would draw a dot at every point, line vertex and polygon centroid of a style that sets no marker. Confirm this is intended. The Dot defaults also give a size and a color, while a Dot is drawn with the width and color of its Stroke.
+NOTE: The default Marker applies to features of every geometry type, so that every feature is visible by default. A style that sets no marker therefore draws a Dot at each point, at each vertex of a line and at the centroid of each polygon. A style that does not want these markers clears the marker, as a basic default style would normally do.
+
+// TODO(review): state how a style clears the default Marker (e.g., `marker: { elements: [] }` in CartoSym-JSON). The Dot defaults also give a size and a color, while a Dot is drawn with the width and color of its Stroke.
 
 === Vendor Extensions
 
