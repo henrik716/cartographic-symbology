@@ -23,4 +23,4 @@ part:: An Encoding SHALL support defining the right-hand operands of RelationExp
 part:: A Renderer SHALL support evaluating RelationExpressions whose right-hand operands are any type of Expression.
 ====
 
-// TODO(review): specify how a bare word on the right-hand side, such as `coverage` in `[dataLayer.type = coverage]`, is read, or quote the strings in the examples (see #151).
+NOTE: Where an enumeration is expected, such as for the `dataLayer.type` System Identifier in `[dataLayer.type = coverage]`, a bare word on the right-hand side is an enumeration value rather than an Identifier Expression (see <<cscss-enumeration-values,Enumeration values>>).
