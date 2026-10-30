@@ -62,10 +62,10 @@ part:: A Renderer SHALL support updating only the array element identified by `i
 ====
 [%metadata]
 identifier:: /req/json/dot-size-color
-part:: An Encoding SHALL NOT set both `size` and `stroke.width`, nor both `color` and `stroke.color`, in the same Dot object.
+part:: An Encoding SHALL NOT set both `size` and `stroke.width`, nor both `color` and `stroke.color`, for the same Dot within a single styling rule.
 ====
 
-NOTE: The `size` and `color` of a Dot are the same values as the `width` and `color` of its stroke, and the value set last applies. The members of a JSON object have no order (RFC 8259), so within one Dot object there is no last value. Across styling rules, the value set by the later rule applies, as in CartoSym-CSS.
+NOTE: The `size` and `color` of a Dot are the same values as the `width` and `color` of its stroke, and the value set last applies. The members of a JSON object have no order (RFC 8259), so within one styling rule there is no last value. Setting `stroke.width` in one styling rule and `size` in a later one is valid, even though both refer to the same Dot of the same Marker or Label: the value set by the later rule applies, as in CartoSym-CSS.
 
 [[req-json-variables]]
 ===== Variables
