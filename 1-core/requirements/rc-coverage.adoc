@@ -53,7 +53,7 @@ part:: A Renderer SHALL support using the value resolved from the `singleChannel
 [%metadata]
 identifier:: /req/coverage/color-map
 part:: An Encoding SHALL support defining a `colorMap` Symbolizer property as an array of `value` (float) and `color` (Color) pairs which can be tagged with a `name`.
-part:: A Renderer SHALL support portraying each coverage cell with the color mapped from its `singleChannel` value by the `colorMap`, interpolating linearly between the colors of the two closest entries and using the color of the first or last entry for values outside the range of the map.
+part:: A Renderer SHALL support portraying each coverage cell with the color mapped from its `singleChannel` value by the `colorMap`, using the color of an entry for a value equal to that entry's `value`, interpolating between the colors of the two closest entries for other values within the range of the map, and using the color of the first or last entry for values outside the range of the map.
 ====
 
 [[req-coverage-opacity-map]]
@@ -64,10 +64,20 @@ part:: A Renderer SHALL support portraying each coverage cell with the color map
 [%metadata]
 identifier:: /req/coverage/opacity-map
 part:: An Encoding SHALL support defining a `opacityMap` Symbolizer property as an array of `value` (float) and `opacity` (float) pairs which can be tagged with a `name`.
-part:: A Renderer SHALL support portraying each coverage cell with the opacity mapped from its `singleChannel` value by the `opacityMap`, interpolating linearly between the opacities of the two closest entries and using the opacity of the first or last entry for values outside the range of the map.
+part:: A Renderer SHALL support portraying each coverage cell with the opacity mapped from its `singleChannel` value by the `opacityMap`, using the opacity of an entry for a value equal to that entry's `value`, interpolating between the opacities of the two closest entries for other values within the range of the map, and using the opacity of the first or last entry for values outside the range of the map.
 ====
 
-// TODO(review): confirm linear interpolation and clamping as the default behavior for `colorMap` and `opacityMap` (see #149).
+[[rec-coverage-map-interpolation]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/coverage/map-interpolation
+part:: A Renderer SHOULD interpolate the colors of a `colorMap` and the opacities of an `opacityMap` so that the result lies between those of the two closest entries.
+====
+
+NOTE: The interpolation method is not specified: linear interpolation, or a smoother one, can be used. Linear interpolation, easing between the two closest entries and monotone cubic interpolation all keep the result between those entries, while a parabola fitted through three neighbouring entries can overshoot them. When all values of a coverage are equal to entries of the map (e.g., integer class codes), the cells take exactly the colors or opacities of those entries.
+
+NOTE: A `colorMap` does not define stepped classes for continuous values (e.g., one color for all values from 0 to 10). Such classes can be written with chained conditional expressions using relational operators, e.g. `colorChannels: B04 < 10 ? green : (B04 < 20 ? yellow : red)`.
 
 [[req-coverage-gamma]]
 ===== Symbolizer `gamma` property
